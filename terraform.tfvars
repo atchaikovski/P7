@@ -15,3 +15,5 @@ master_host_name = "master"
 worker_host_name = "worker"
 worker_count = 2
 master_count = 1
+
+az           = "us-east-1a"

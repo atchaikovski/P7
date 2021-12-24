@@ -7,7 +7,8 @@ resource "aws_instance" "master" {
   key_name                    = "aws_adhoc"
   count                       = var.master_count
   associate_public_ip_address = true
-  
+  availability_zone           = var.az
+
   tags = { 
     Name = "Master Server"
   }
@@ -21,6 +22,7 @@ resource "aws_instance" "worker" {
   key_name                    = "aws_adhoc"
   count                       = var.worker_count
   associate_public_ip_address = true
+  availability_zone           = var.az
 
   tags = {
     Name = "Worker Server # ${count.index}"

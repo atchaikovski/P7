@@ -40,6 +40,11 @@ variable "worker_host_name" {
   default = "worker"
 }
 
+variable "az" {
+  type = string
+  default = "us-east-1a"
+}
+
 variable "public_key" {}
 
 variable "private_key" {}
