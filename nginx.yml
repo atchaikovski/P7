@@ -1,0 +1,40 @@
+# Deployment nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: default
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.21
+          ports:
+          - containerPort: 80
+            name: nginx
+
+# Service
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service
+  namespace: default
+spec:
+  selector:
+    app: nginx
+  type: LoadBalancer
+  ports:
+  - name: nginx-http
+    port: 8888

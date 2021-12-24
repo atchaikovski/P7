@@ -1,0 +1,25 @@
+---
+
+- hosts: masters
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  become_user: root
+  gather_facts: yes
+  connection: ssh
+
+  roles: 
+    - common
+    - master
+
+- hosts: workers
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  become_user: root
+  gather_facts: yes
+  connection: ssh
+
+  roles:
+    - common
+    - worker
