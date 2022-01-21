@@ -28,7 +28,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = { 
-    Name = "_ SecurityGroup" 
+    Name = "k8s SecurityGroup" 
   }
 
 }
